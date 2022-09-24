@@ -17,7 +17,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/golang/snappy"
-	"github.com/prometheus/common/model"
+	"github.com/hongyuyang/logrus-loki/model"
 	"github.com/sirupsen/logrus"
 )
 
