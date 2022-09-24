@@ -51,8 +51,8 @@ func NewLoki(URL string, batchSize int, batchWait time.Duration) (*Loki, error) 
 	return NewLokiCustomHostname(URL, batchSize, batchWait, hostname)
 }
 
-func NewLokiDefaults(URL string) (*Loki, error) {
-	return NewLoki(URL, 1024*1024, time.Second)
+func NewLokiDefaults(URL string, batchWait time.Duration) (*Loki, error) {
+	return NewLoki(URL, 1024*1024, batchWait)
 }
 
 func NewLokiCustomHostname(URL string, batchSize int, batchWait time.Duration, hostname string) (*Loki, error) {
@@ -136,9 +136,9 @@ func (l *Loki) run() {
 			l.entry = entry{model.LabelSet{}, &Entry{Timestamp: ts}}
 			//l.entry.labels["level"] = model.LabelValue(ll.Level.String())
 			//l.entry.labels["hostname"] = model.LabelValue(l.hostname)
-			for key, value := range ll.Data {
-				l.entry.labels[model.LabelName(key)] = model.LabelValue(fmt.Sprintf("%v", value))
-			}
+			//for key, value := range ll.Data {
+			//	l.entry.labels[model.LabelName(key)] = model.LabelValue(fmt.Sprintf("%v", value))
+			//}
 			for key, value := range l.data {
 				l.entry.labels[key] = value
 			}
