@@ -1,4 +1,4 @@
-module yanghongyu/logrus-loki
+module github.com/hongyuyang/logrous-loki
 
 go 1.16
 
