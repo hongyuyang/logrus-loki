@@ -134,8 +134,8 @@ func (l *Loki) run() {
 			}
 
 			l.entry = entry{model.LabelSet{}, &Entry{Timestamp: ts}}
-			l.entry.labels["level"] = model.LabelValue(ll.Level.String())
-			l.entry.labels["hostname"] = model.LabelValue(l.hostname)
+			//l.entry.labels["level"] = model.LabelValue(ll.Level.String())
+			//l.entry.labels["hostname"] = model.LabelValue(l.hostname)
 			for key, value := range ll.Data {
 				l.entry.labels[model.LabelName(key)] = model.LabelValue(fmt.Sprintf("%v", value))
 			}
