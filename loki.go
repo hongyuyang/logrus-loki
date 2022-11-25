@@ -186,7 +186,7 @@ func (l *Loki) sendBatch(batch map[model.Fingerprint]*Stream) error {
 	if err != nil {
 		return err
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	_, err = l.send(ctx, buf)
